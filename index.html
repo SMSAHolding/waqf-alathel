@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أوقاف سلطان بن محمد العذل</title>
+  
+  <!-- خط تجوال من Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-dark: #0b2e1b;
+      --primary-green: #144d2d;
+      --accent-gold: #c5a059;
+      --accent-gold-light: #f5eedf;
+      --bg-cream: #fbfaf6;
+      --text-dark: #222222;
+      --text-muted: #4a4a4a;
+      --white: #ffffff;
+      --border-color: rgba(197, 160, 89, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.9;
+    }
+
+    /* --- الشريط العلوي --- */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+      border-bottom: 2px solid var(--accent-gold);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--primary-dark);
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -4px;
+      right: 0;
+      background-color: var(--accent-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .login-btn {
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
+      color: var(--white);
+      padding: 0.65rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--accent-gold);
+      box-shadow: 0 4px 10px rgba(11, 46, 27, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background: linear-gradient(135deg, var(--accent-gold), #aa843b);
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(197, 160, 89, 0.3);
+    }
+
+    /* --- الهيكل الرئيسي --- */
+    main {
+      max-width: 1150px;
+      margin: 3.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .content-card {
+      scroll-margin-top: 110px; /* تضمن ظهور العنوان أسفل الشريط العلوي عند النقر */
+      background: var(--white);
+      border-radius: 16px;
+      padding: 3.5rem;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--primary-green), var(--accent-gold));
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent-gold);
+      margin-bottom: 2rem;
+      border-radius: 2px;
+    }
+
+    /* تخطيط الصورة مع النص */
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .founder-image-wrapper {
+      position: sticky;
+      top: 120px;
+    }
+
+    .founder-image {
+      width: 100%;
+      border-radius: 14px;
+      border: 3px solid var(--accent-gold);
+      box-shadow: 0 10px 25px rgba(11, 46, 27, 0.12);
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-caption {
+      text-align: center;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary-green);
+    }
+
+    /* تنسيق المقالات والفقرات */
+    .article-text p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+      text-align: justify;
+    }
+
+    .sub-heading {
+      font-size: 1.3rem;
+      color: var(--primary-green);
+      margin: 2rem 0 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sub-heading::before {
+      content: '■';
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+    }
+
+    /* --- التذييل --- */
+    footer {
+      text-align: center;
+      padding: 2.2rem 1rem;
+      background-color: var(--primary-dark);
+      color: var(--accent-gold-light);
+      font-size: 0.95rem;
+      border-top: 3px solid var(--accent-gold);
+    }
+
+    /* --- التجاوب مع الجوال والأجهزة اللوحية --- */
+    @media (max-width: 900px) {
+      .founder-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .founder-image-wrapper {
+        position: static;
+        max-width: 280px;
+        margin: 0 auto 2rem auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem 1rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      .content-card {
+        scroll-margin-top: 190px; /* مسافة تعويضية أكبر على الجوال لتناسب الشريط العلوي العمودي */
+        padding: 2rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .sub-heading {
+        font-size: 1.15rem;
+      }
+
+      .article-text p {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- شريط التنقل العلوي -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-section">
+        <img src="Waqf.png" alt="شعار أوقاف سلطان بن محمد العذل" class="logo">
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#about-waqf">عن الوقف</a></li>
+        <li><a href="#about-founder">عن الشيخ سلطان بن محمد العذل</a></li>
+      </ul>
+
+      <a href="https://portal.waqf-alathel.org/login" target="_blank" rel="noopener noreferrer" class="login-btn">
+        تسجيل الدخول
+      </a>
+    </div>
+  </header>
+
+  <!-- المحتوى الرئيسي -->
+  <main>
+
+    <!-- قسم النبذة عن الوقف -->
+    <section id="about-waqf" class="content-card">
+      <h2 class="section-title">عن الوقف</h2>
+      <div class="section-divider"></div>
+      <div class="article-text">
+        <p>
+          نشأ الشيخ سلطان بن محمد العذل في كنف أسرة رائدة في البذل والعطاء؛ فكان حريصاً في حياته على فعل الخير ومساعدة المحتاجين، وسار على نهج والده وإخوته في تأسيس أوقاف استثمارية توجّه عوائدها للأعمال الخيرية.
+        </p>
+        <p>
+          وتتويجاً لهذه المسيرة المباركة، أوصى -رحمه الله- عند وفاته بضمان استمرارية هذه الأوقاف، وحمايتها، وتنميتها وفق أفضل الممارسات الاستثمارية لتعظيم ريعها، مع تحديد أوجه صرفها بدقة لتوجيه الدعم نحو سد حاجات المحتاجين والمشاريع الأكثر نفعاً واستدامة، ليبقى وقفه شرياناً متجدداً للخير وامتداداً حياً لإرثه الإنساني النبيل.
+        </p>
+      </div>
+    </section>
+
+    <!-- قسم النبذة عن الشيخ سلطان بن محمد العذل -->
+    <section id="about-founder" class="content-card">
+      <h2 class="section-title">المهندس سلطان بن محمد العذل (1961 – 2020م)</h2>
+      <div class="section-divider"></div>
+
+      <div class="founder-grid">
+        <!-- عمود الصورة -->
+        <div class="founder-image-wrapper">
+          <img src="EVZ_mwPXYAI_kfi.jpg" alt="المهندس سلطان بن محمد العذل رحمه الله" class="founder-image">
+          <div class="image-caption">المهندس سلطان بن محمد العذل (رحمه الله)</div>
+        </div>
+
+        <!-- عمود السيرة والمحطات -->
+        <div class="article-text">
+          <h3 class="sub-heading" style="margin-top: 0;">النشأة والتأسيس المعرفي</h3>
+          <p>
+            ولد سلطان بن محمد بن صالح العذل في مدينة الرياض عام 1961م، ونشأ في بيئة عائلية ألهمته قيم الجدية وتحمل المسؤولية، متأثراً بوالده الشيخ محمد بن صالح العذل الذي غرس فيه استشراف المستقبل ومراقبة الله في القول والعمل. تلقى تعليمه العام في معهد العاصمة النموذجي بالرياض حتى نال الشهادة الثانوية، لينتقل بعدها إلى الولايات المتحدة الأمريكية لاستكمال دراسته الأكاديمية؛ حيث التحق بجامعة بورتلاند بولاية أوريغون وتخرج بتقدير امتياز في الهندسة الكهربائية، مقدماً بحث تخرج مميزاً في مجال "المفاعلات الذرية". ولصقل رؤيته القيادية، واصل تطوير مداركه بالحصول على برامج تدريبية تخصصية متقدمة في مراكز عالمية رائدة مثل "فرانكلين كوفي"، ولا سيما في مجالات إدارة الوقت وفق منهجية "الأهم ثم المهم"، واستراتيجيات القيادة في متغيرات القرن الحادي والعشرين.
+          </p>
+
+          <h3 class="sub-heading">الانطلاقة الاستثمارية وتأسيس صروح الأعمال</h3>
+          <p>
+            عاد المهندس سلطان إلى أرض الوطن متسلحاً برؤية سباقة وروح وثابة تدفعه للمساهمة في دفع عجلة الاقتصاد الوطني وفتح فرص العمل لأبناء بلده. بدأت رحلته الريادية بالمساهمة في تأسيس شركة "القسي العالمية للمقاولات"، ليتجه بعدها نحو قطاعات حيوية ناشئة تتطلب جودة تشغيلية عالمية. ففي عام 1994م، قاد خطوة فارقة بتأسيس شركة "سمسا" للنقل السريع المحدودة كوكيل حصري لعملاق الشحن العالمي "فيديكس" (FedEx) في المملكة، لتتحول سريعاً إلى ركيزة لوجستية كبرى غطت خدماتها أنحاء المملكة بأسطول من آلاف المركبات، ثم توسعت إلى العديد من الدول في شتى قارات العالم. ولم تتوقف رؤيته عند قطاع النقل والخدمات؛ فخلال سنوات دراسته بالخارج أثاره نموذج محلات القهوة والمخبوزات السريعة، فعقد شراكة مباشرة مع الشركة الأم وحصل على الامتياز الحصري لسلسلة "دانكن دوناتس" عبر شركة "شهية" المحدودة التي انطلقت عام 1996م، ولم تلبث أن توسعت عملياتها وتراخيصها لتتخطى حدود المملكة إلى مملكة البحرين وألمانيا.
+          </p>
+
+          <h3 class="sub-heading">الصبر على المرض والإدارة بحركة العينين</h3>
+          <p>
+            في عام 1997م، وبعد ثلاث سنوات فقط من تأسيس أولى شركاته الكبرى، واجه المهندس سلطان منعطفاً صحياً حرجاً بإصابته بمرض التصلب الجانبي الضموري (ALS). وخلال فترة معاناته التي امتدت لنحو 23 عاماً، سلب منه هذا المرض العُضال القدرة الكاملة على الحركة والنطق، وأفقده حواسه عدا حاستي السمع والبصر والإحساس، وألزمه التنفس عبر جهاز صناعي والتغذية عبر أنبوب ممتد للمعدة. وفي هذه الظروف القاسية تمكن بالعزيمة والإصرار والرضا بحكم الله من تحويل المحنة إلى نموذج عالمي في الإدارة؛ فاستمر في قيادة وتنمية إمبراطوريته الاستثمارية التي ضمت أكثر من 10 شركات كبرى يعمل فيها ما يزيد على عشرة آلاف موظف وموظفة، موجهاً الفرق التنفيذية ومتخذاً القرارات الإدارية والمالية بدقة فائقة مستنداً فقط إلى حركة عينيه بمساعدة التقنيات الحديثة.
+          </p>
+
+          <h3 class="sub-heading">الإسهام الفكري والتأليف التوثيقي</h3>
+          <p>
+            لم يقتصر عطاؤه الاستثنائي على ميادين الاستثمار وتأسيس الكيانات الجديدة – كإطلاقه شركة "مأكل" العالمية للتغذية عام 2009م وهو في ذروة مرضه – بل امتد ليترك بصمة فكرية وعلمية وإدارية رصينة. فبجهد شاق أدار فيه حركة عينيه حرفاً بحرف، ألّف كتاباً تاريخياً مرجعياً ضخماً يقع في قرابة ألفي صفحة؛ حيث صدرت نسخته الإنجليزية عام 2005م وأعقبتها العربية عام 2007م، موثقاً من خلال عشرات الوثائق سيرة جده صالح "باشا" بن محسن بن عذل ودوره التاريخي البارز في عهد الملك المؤسس عبد العزيز آل سعود إبان بناء الدولة الحديثة. وقد حظي هذا المرجع التاريخي بمقدمة كريمة من خادم الحرمين الشريفين الملك سلمان بن عبد العزيز (حين كان ولياً للعهد). كما شارك العذل في تأليف كتاب علمي متخصص بعنوان "الإنسان والكوارث" (Human and Disasters)، وصاغ مجموعة من الأدلة المهنية والإدارية والفنية المتخصصة.
+          </p>
+
+          <h3 class="sub-heading">فلسفته القيادية ورحيله رحمه الله</h3>
+          <p>
+            ارتكزت الفلسفة الإدارية للراحل على تمكين الكفاءات الوطنية وتأهيل الكوادر الشابة على رأس العمل، مستنداً إلى مبدأ اختيار الكفاءة المناسبة وتفويضها بكامل الصلاحيات اللازمة لتحقيق الأهداف، مؤمناً بأن اليأس بضاعة المفلس وأن لا عجز مع صدق التوكل وحسن التخطيط. وفي يوم الجمعة 17 شعبان 1441هـ الموافق 10 أبريل 2020م، ترجل المهندس سلطان بن محمد العذل بعد مسيرة كفاح ملهمة، تاركاً وراءه إرثاً إنسانياً ووطنياً يثبت أن الإستعانة بالله ووضوح البصيرة يتفوقان دوماً على عجز الجسد.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- التذييل -->
+  <footer>
+    <p>جميع الحقوق محفوظة © أوقاف سلطان بن محمد العذل</p>
+  </footer>
+
+</body>
+</html>
